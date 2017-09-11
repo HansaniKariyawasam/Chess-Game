@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewreports" content="=width=device-width,initial scale">
+        <title>Chess Game</title>
+        <link rel="icon" href="images/icon.png" type="image/png">
+        <style>
+            #chessboard, .dark_square, .light_square {
+                padding:0px;
+                margin:0px;
+            }
+
+            body{
+                background: url(images/e.jpg) no-repeat;
+                background-size: cover;
+            }
+
+            #chessboard {
+                width:640px;
+                height:640px;
+                border:24px solid #864515;
+                border-style: ridge;
+                position: absolute;
+                background-image: url("images/back.png");
+                left: 23%;
+                top: 0.039%;
+                transform: scale(0.9);
+                padding: 2%;
+                background-color: #ffbc54;
+            }
+
+            .dark_square, .light_square {
+                width:80px;
+                height:80px;
+                float:left;
+            }
+
+            .dark_square {
+                background-color: #582c10;
+            }
+
+            .light_square {
+                background-color: white;
+            }
+            img{
+                height: 75px;
+                width: 80px;
+            }
+            .light_square:hover {
+                -webkit-box-shadow: inset 0px 0px 5px 5px rgb(76, 235, 39);
+                box-shadow: inset 0px 0px 5px 5px rgb(76, 235, 39);
+            }
+            .dark_square:hover {
+                -webkit-box-shadow: inset 0px 0px 5px 5px rgb(76, 235, 39);
+                box-shadow: inset 0px 0px 5px 5px rgb(76, 235, 39);
+            }
+
+            .legal{
+
+                -webkit-box-shadow: inset 0px 0px 10px 5px #318cff;
+                box-shadow: inset 0px 0px 5px 5px #318cff;
+            }
+            .ui-widget-header {
+                background: #b0de78;
+                border: ridge 2px #3b771a;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            .attackCell{
+                -webkit-box-shadow: inset 0px 0px 5px 5px #ed3c31;
+                box-shadow: inset 0px 0px 5px 5px #ed3c31;
+            }
+
+        </style>
+    </head>
+    <body>
+    <div id="chessboard">
+
+            <div class="light_square" id="A8" ><img src="images/bR.png" class="bRook" id="bQR"></div>
+            <div class="dark_square" id="B8"><img src="images/bN.png" class="bKnight" id="bQN"></div>
+            <div class="light_square" id="C8"><img src="images/bB.png " class="bBishop" id="bQB"></div>
+            <div class="dark_square" id="D8"><img src="images/bQ.png" class="bQueen" id="bQ"></div>
+            <div class="light_square" id="E8"><img src="images/bK.png" class="bKing" id="bK"></div>
+            <div class="dark_square" id="F8"><img src="images/bB.png " class="bBishop" id="bKB"></div>
+            <div class="light_square" id="G8"><img src="images/bN.png" class="bKnight" id="bKN"></div>
+            <div class="dark_square" id="H8"><img src="images/bR.png" class="bRook" id="bKR"></div>
+
+            <div class="dark_square" id="A7"><img src="images/bP.png" id="bPawn-1" class="bPawn"></div>
+            <div class="light_square" id="B7"><img src="images/bP.png" id="bPawn-2" class="bPawn"></div>
+            <div class="dark_square" id="C7"><img src="images/bP.png" id="bPawn-3" class="bPawn"></div>
+            <div class="light_square" id="D7"><img src="images/bP.png" id="bPawn-4" class="bPawn"></div>
+            <div class="dark_square" id="E7"><img src="images/bP.png" id="bPawn-5" class="bPawn"></div>
+            <div class="light_square" id="F7"><img src="images/bP.png" id="bPawn-6" class="bPawn"></div>
+            <div class="dark_square" id="G7"><img src="images/bP.png" id="bPawn-7" class="bPawn"></div>
+            <div class="light_square" id="H7"><img src="images/bP.png" id="bPawn-8" class="bPawn"></div>
+
+            <div class="light_square" id="A6"></div>
+            <div class="dark_square" id="B6"></div>
+            <div class="light_square" id="C6"></div>
+            <div class="dark_square" id="D6"></div>
+            <div class="light_square" id="E6"></div>
+            <div class="dark_square" id="F6"></div>
+            <div class="light_square" id="G6"></div>
+            <div class="dark_square" id="H6"></div>
+
+            <div class="dark_square" id="A5"></div>
+            <div class="light_square" id="B5"></div>
+            <div class="dark_square" id="C5"></div>
+            <div class="light_square" id="D5"></div>
+            <div class="dark_square" id="E5"></div>
+            <div class="light_square" id="F5"></div>
+            <div class="dark_square" id="G5"></div>
+            <div class="light_square" id="H5"></div>
+
+            <div class="light_square" id="A4"></div>
+            <div class="dark_square" id="B4"></div>
+            <div class="light_square" id="C4"></div>
+            <div class="dark_square" id="D4"></div>
+            <div class="light_square" id="E4"></div>
+            <div class="dark_square" id="F4"></div>
+            <div class="light_square" id="G4"></div>
+            <div class="dark_square" id="H4"></div>
+
+            <div class="dark_square" id="A3"></div>
+            <div class="light_square" id="B3"></div>
+            <div class="dark_square" id="C3"></div>
+            <div class="light_square" id="D3"></div>
+            <div class="dark_square" id="E3"></div>
+            <div class="light_square" id="F3"></div>
+            <div class="dark_square" id="G3"></div>
+            <div class="light_square" id="H3"></div>
+
+            <div class="light_square" id="A2"><img src="images/wP.png" id="wPawn-1" class="wPawn"></div>
+            <div class="dark_square" id="B2"><img src="images/wP.png" id="wPawn-2" class="wPawn"></div>
+            <div class="light_square" id="C2"><img src="images/wP.png" id="wPawn-3" class="wPawn"></div>
+            <div class="dark_square" id="D2"><img src="images/wP.png" id="wPawn-4" class="wPawn"></div>
+            <div class="light_square" id="E2"><img src="images/wP.png" id="wPawn-5" class="wPawn"></div>
+            <div class="dark_square" id="F2"><img src="images/wP.png" id="wPawn-6" class="wPawn"></div>
+            <div class="light_square" id="G2"><img src="images/wP.png" id="wPawn-7" class="wPawn"></div>
+            <div class="dark_square" id="H2"><img src="images/wP.png" id="wPawn-8" class="wPawn"></div>
+
+            <div class="dark_square" id="A1"><img src="images/wR.png" class="wRook" id="wQR"></div>
+            <div class="light_square" id="B1"><img src="images/wN.png" class="wKnight" id="wQN"></div>
+            <div class="dark_square" id="C1"><img src="images/wB.png" class="wBishop" id="wQB"></div>
+            <div class="light_square" id="D1"><img src="images/wQ.png" class="wQueen" id="wQ"></div>
+            <div class="dark_square" id="E1"><img src="images/wK.png" class="wKing" id="wK"></div>
+            <div class="light_square" id="F1"><img src="images/wB.png" class="wBishop" id="wKB"></div>
+            <div class="dark_square" id="G1"><img src="images/wN.png" class="wKnight" id="wKN"></div>
+            <div class="light_square" id="H1"><img src="images/wR.png" class="wRook" id="wKR"></div>
+    </div>
+    <div id="dialog"></div>
+    <audio id="audio" src="audio/audio.mp3" loop></audio>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/controller.js"></script>
+    </body>
+</html>
